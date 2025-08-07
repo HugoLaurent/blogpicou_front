@@ -1,0 +1,18 @@
+services:
+  blogpicou_frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: blogpicou_frontend
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    ports:
+      - "5173:5173"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+    stdin_open: true
+    tty: true
